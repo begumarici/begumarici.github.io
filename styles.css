@@ -90,6 +90,20 @@
             transition: opacity 3s cubic-bezier(0.4, 0, 1, 1), transform 1.5s cubic-bezier(0.4, 0, 1, 1);
         }
 
+        .instagram a {
+            color: #333;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 3s cubic-bezier(0.4, 0, 1, 1), transform 1.5s cubic-bezier(0.4, 0, 1, 1);
+        }
+
+        .pexels a {
+            color: #333;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 3s cubic-bezier(0.4, 0, 1, 1), transform 1.5s cubic-bezier(0.4, 0, 1, 1);
+        }
+        
         body.loaded .content, body.loaded #profile-photo, body.loaded .social a, body.loaded .social img, body.loaded .linkedin a, body.loaded .github a{
             opacity: 1;
             transform: translateY(0);
