@@ -90,6 +90,14 @@
             transition: opacity 3s cubic-bezier(0.4, 0, 1, 1), transform 1.5s cubic-bezier(0.4, 0, 1, 1);
         }
 
+        .kaggle a {
+           
+            color: #333;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 3s cubic-bezier(0.4, 0, 1, 1), transform 1.5s cubic-bezier(0.4, 0, 1, 1);
+        }
+
         .instagram a {
             color: #333;
             opacity: 0;
