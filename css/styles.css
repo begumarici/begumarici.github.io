@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #EAE0D5;
+    color: #222;
+    text-align: center;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4A4E69;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #222;
+}
+
+/* Buttons */
+button, a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover, a:hover {
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 80's retro */
+.shadow-80s {
+    text-shadow: 5px 5px 0px #6a0dad, 10px 10px 0px #ffbf00;
+}
+
+/* Retro frame */
+.border-80s {
+    border: 5px solid black;
+    box-shadow: 5px 5px 0px black;
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Home */
+#home {
+    background-color: #EAE0D5;
+}
+
+/* About */
+#about {
+    background-color: #90AFC5; 
+    color: #222;
+}
+
+/* Projects */
+#projects {
+    background-color: #C9ADA7;
+    color: white;
+}
+
+/* Contact */
+#contact {
+    background-color: #6C757D;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    button, a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
