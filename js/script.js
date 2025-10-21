@@ -1,57 +1,33 @@
-// navbar and buttons - smooth scroll
-function smoothScroll(targetId) {
-    var target = document.getElementById(targetId);
-    var targetPosition = target.getBoundingClientRect().top + window.scrollY;
-    var startPosition = window.scrollY;
-    var distance = targetPosition - startPosition;
-    var duration = 1200; // 1.2 sec
-    var startTime = null;
-
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+const translations = {
+    en: {
+        greeting: "Hello",
+        sectionTitle: "A Bit About Me",
+        description: "I'm a new graduated computer engineer passionate about iOS development. I love creating beautiful and functional mobile applications that provide great user experiences. In my free time, I enjoy exploring new technologies and working on personal projects to enhance my skills.",
+        resume: "Resume",
+        footer: "Made with"
+    },
+    tr: {
+        greeting: "Merhaba",
+        sectionTitle: "Hakkımda",
+        description: "Ben Begüm. Yeni mezun bir bilgisayar mühendisiyim ve iOS geliştirme alanına ilgi duyuyor, bu alanda çalışmalar yapıyorum. Yaratıcı ve kullanıcı dostu mobil uygulamalar geliştiriyorum. Yeni teknolojiler öğrenmekten ve bunları projelerimde uygulamaktan büyük keyif alıyorum.",
+        resume: "Özgeçmiş",
+        footer: "Made with"
     }
+};
 
-    function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        var timeElapsed = currentTime - startTime;
-        var progress = easeInOutCubic(timeElapsed / duration);
-        var run = startPosition + (distance * progress);
+const langButtons = document.querySelectorAll('.lang-btn');
 
-        window.scrollTo(0, run);
+langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
 
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-        }
-    }
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    requestAnimationFrame(animation);
-}
-
-// mouse - smooth scrolling 
-let isScrolling = false;
-let scrollDelta = 0;
-
-window.addEventListener("wheel", function (event) {
-    event.preventDefault();
-    scrollDelta += event.deltaY * 0.15; 
-
-    if (!isScrolling) {
-        isScrolling = true;
-        requestAnimationFrame(smoothMouseScroll);
-    }
-}, { passive: false });
-
-function smoothMouseScroll() {
-    let currentScroll = window.scrollY;
-    let targetScroll = currentScroll + scrollDelta;
-
-    scrollDelta *= 0.9; 
-
-    window.scrollTo(0, targetScroll);
-
-    if (Math.abs(scrollDelta) > 0.5) {
-        requestAnimationFrame(smoothMouseScroll);
-    } else {
-        isScrolling = false;
-    }
-}
+        document.querySelector('.greeting').textContent = translations[lang].greeting;
+        document.querySelector('.section-title').textContent = translations[lang].sectionTitle;
+        document.querySelector('.description').textContent = translations[lang].description;
+        document.querySelector('.btn-resume').textContent = translations[lang].resume;
+        document.querySelector('footer p').innerHTML = `© 2025 · ${translations[lang].footer} ☕`;
+    });
+});
